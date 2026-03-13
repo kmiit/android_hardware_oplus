@@ -1,0 +1,2 @@
+# Allow system_suspend to read wakeup source stats
+allow system_suspend sysfs_wakeup:file read;
