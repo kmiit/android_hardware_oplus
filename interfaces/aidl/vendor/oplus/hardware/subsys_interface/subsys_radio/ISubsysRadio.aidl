@@ -12,21 +12,29 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.CyberSenseHALCollecti
 import vendor.oplus.hardware.subsys_interface.subsys_radio.DataStallParam;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.DubCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HSTType;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.HyperUplinkParas;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadioIndication;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadioResponse;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.IdcOffsetConfig;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpThresholdInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.LockCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.LpmScanRusConfigType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.McfgRfsParams;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NfList;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.OosCfgInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ParamConfig;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PlmnBlockInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PlmnRatInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.PolicyConfig;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PowerSavingInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.QrxlvminCfgInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RfTxInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RfTxInfo2;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.TxAdcInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.UimAuthenticateReqInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.IUimAuthenticateCallback;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.VonrRollbackCfg;
 
 @VintfStability
 interface ISubsysRadio {
@@ -287,4 +295,35 @@ interface ISubsysRadio {
     oneway void startMetricsCollect(int serial, int id, in int[] mask);
     oneway void stopMetricsCollect(int serial, int id);
     oneway void getMetricsData(int serial, int id, int subPolicy, in int[] mask);
+    oneway void setHyperUplinkMode(int serial, int mode);
+    oneway void sendSceneMode(int serial, int scene, int mode);
+    oneway void sendQoeScore(int serial, int scene, int state);
+    oneway void setHyperUplinkParas(int serial, in HyperUplinkParas hyperUplinkParas);
+    oneway void setSiteCellInfo(int serial, int nodebId, in CellInfo[] cellInfos);
+    oneway void setModemIndicationPolicy(int serial, in PolicyConfig[] policy);
+    oneway void getModemIndicationPolicy(int serial);
+    oneway void setAolState(int serial, int state);
+    oneway void setImbState(int serial, int state);
+    oneway void setMtplLimitState(int serial, int state);
+    oneway void setAntFixState(int serial, int state);
+    oneway void setAntBlockState(int serial, int state);
+    oneway void setPowerBoostState(int serial, int state);
+    oneway void getModemProtocolInfo(int serial);
+    oneway void requestIccSimAuthentication(int serial, in UimAuthenticateReqInfo info, IUimAuthenticateCallback cb);
+    oneway void getAtomData(int serial, int atomAppId, int subPolicy, in int[] mask);
+    oneway void loadAtomApplication(int serial, int atomAppId, int subPolicy, in String[] rule, in int[] mask, in ParamConfig[] para);
+    oneway void unloadAtomApplication(int serial, int atomAppId);
+    oneway void getAllCellularCellInfo(int serial);
+    oneway void setImsRtpInfo(int serial, in ImsRtpInfo info);
+    oneway void setImsRtpThreshold(int serial, in ImsRtpThresholdInfo info);
+    oneway void setRedirectOptSetting(int serial, int fromRat, int toRat, int state, int cnt, int period, int reserve);
+    oneway void setAttachPriority(int serial, int dds, int rat, int state, int priority, int reserve);
+    oneway void setPingpongBarSetting(int serial, int type, int barTime, int period, int hitCnt, int reserve);
+    oneway void performRetHighRat(int serial, int rat, int reserve);
+    oneway void getIndicationReportRecords(int serial);
+    oneway void setCiwlanUiSwitch(int serial, boolean enable);
+    oneway void getATCIStatus(int serial);
+    oneway void enableATCIPort(int serial, boolean enable);
+    oneway void setVonrRollbackCfg(int serial, in VonrRollbackCfg info);
+    oneway void satelliteFirmwareDownLoad(int serial);
 }

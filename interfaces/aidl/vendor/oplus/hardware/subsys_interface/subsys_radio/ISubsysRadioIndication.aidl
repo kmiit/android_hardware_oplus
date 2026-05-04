@@ -8,13 +8,18 @@ package vendor.oplus.hardware.subsys_interface.subsys_radio;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CellInfos;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CyberSenseHALCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsMessage;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpControlInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpState;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.MccChangeIndInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.NasAccessBarringStatusInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.Nr5gDrxType;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.NrcaInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NwRateLimitingInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SimOverdueIndType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SimlockInfoType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SimlockStateType;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.VonrBackoffInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.VonrRollbackInfo;
 
 @VintfStability
 oneway interface ISubsysRadioIndication {
@@ -48,4 +53,12 @@ oneway interface ISubsysRadioIndication {
     void radioMccChangeInd(int type, in MccChangeIndInfo roamInfo);
     void radioHstModeInd(int type, int hstMode);
     void radioServingCellInfoInd(int type, in CellInfos info);
+    void radioHyperUplinkStateInd(int type, int sceneState, int hyperUplinkState, int hyperUplinkType);
+    void radioAtomDataInd(int type, in byte[] data);
+    void radioLinkLatencyInfoInd(int type, int ulLatency);
+    void radioImsRtpControlInd(int type, in ImsRtpControlInfo info);
+    void radioNasAccessBarringStatusInd(int type, in NasAccessBarringStatusInfo nasAccessBarringStatusinfo);
+    void radioNrcaInfoChangeInd(int type, in NrcaInfo nrcaInfo);
+    void radioVonrBackoffInfoChangeInd(int type, in VonrBackoffInfo backoffInfo);
+    void radioVonrRollbackInfoChangeInd(int type, in VonrRollbackInfo rollbackInfo);
 }
