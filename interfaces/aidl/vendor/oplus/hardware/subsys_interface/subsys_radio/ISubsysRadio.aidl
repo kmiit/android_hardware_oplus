@@ -5,18 +5,22 @@
 
 package vendor.oplus.hardware.subsys_interface.subsys_radio;
 
+import vendor.oplus.hardware.subsys_interface.subsys_radio.AdaptiveHandoverThreshold;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ArrearageCfgInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.AtomParamConfig;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.AtomConfigs;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CfgPaInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CyberSenseHALCollectionPolicy;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.DataStallParam;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.DubCellInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.EccEntry;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HSTType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HyperUplinkParas;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadioIndication;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadioResponse;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.IdcOffsetConfig;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsAudioQualityThreshold;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpThresholdInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.LockCellInfo;
@@ -24,6 +28,7 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.LpmScanRusConfigType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.McfgRfsParams;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NfList;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.OosCfgInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.PagingErrorCfg;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ParamConfig;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PlmnBlockInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PlmnRatInfo;
@@ -339,4 +344,10 @@ interface ISubsysRadio {
     oneway void writeCarrierLockWhitelist(int serial, in byte[] data);
     oneway void readCarrierLockWhitelist(int serial);
     oneway void setAtomStatus(int serial, int id, int status, int subPolicy, in AtomConfigs configs);
+    oneway void setImsAudioQualityThreshold(int serial, in ImsAudioQualityThreshold info);
+    oneway void setPagingErrorCfg(int serial, in PagingErrorCfg info);
+    oneway void setAdaptiveHandoverThreshold(int serial, in AdaptiveHandoverThreshold info);
+    oneway void setIndicationConfig(int serial, int id, in AtomParamConfig[] configs);
+    oneway void setEccList(int serial, in EccEntry[] eccs);
+    oneway void getQrxlvminCfg(int serial, int rat);
 }

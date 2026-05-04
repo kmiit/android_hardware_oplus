@@ -12,12 +12,14 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpControlInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpState;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.MccChangeIndInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NasAccessBarringStatusInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.NeighborCellInfos;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.Nr5gDrxType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NrcaInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NwRateLimitingInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SimOverdueIndType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SimlockInfoType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SimlockStateType;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.VodataEventInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.VonrBackoffInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.VonrRollbackInfo;
 
@@ -65,4 +67,6 @@ oneway interface ISubsysRadioIndication {
     void radioCarrierLockStatusChangeInd(int type, in byte[] data);
     void radioRegionLockStatusChangeInd(int type, in byte[] data);
     void radioAlertEventInd(int type, int alertId, int alertCause, in int[] alertParam);
+    void radioVodataEventInd(int type, in VodataEventInfo vodataEventInfo);
+    void radioAllCellInfoInd(int type, in CellInfos[] servingCellInfo, in NeighborCellInfos[] neighborCellInfos);
 }

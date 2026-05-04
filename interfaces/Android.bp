@@ -640,6 +640,10 @@ aidl_interface {
             version: "5",
             imports: ["vendor.oplus.hardware.subsys-V4"],
         },
+        {
+            version: "6",
+            imports: ["vendor.oplus.hardware.subsys-V4"],
+        },
 
     ],
 }

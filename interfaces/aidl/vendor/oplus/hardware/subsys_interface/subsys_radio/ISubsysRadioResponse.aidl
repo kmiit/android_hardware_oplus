@@ -25,6 +25,7 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.NvBackupStatisticsTyp
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NwRateLimitingInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PhySlotStatus;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PolicyConfig;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.QrxlvminRspInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RrcState;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RsuSimlockLockStatus;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SystemSelectionPreference;
@@ -331,4 +332,10 @@ oneway interface ISubsysRadioResponse {
     void writeCarrierLockWhitelistResponse(in SubsysResponseInfo info);
     void readCarrierLockWhitelistResponse(in SubsysResponseInfo info, in byte[] data);
     void setAtomStatusResponse(in SubsysResponseInfo info);
+    void setImsAudioQualityThresholdResponse(in SubsysResponseInfo info);
+    void setPagingErrorCfgResponse(in SubsysResponseInfo info);
+    void setAdaptiveHandoverThresholdResponse(in SubsysResponseInfo info);
+    void setIndicationConfigResponse(in SubsysResponseInfo info);
+    void setEccListResponse(in SubsysResponseInfo info);
+    void getQrxlvminCfgResponse(in SubsysResponseInfo info, in QrxlvminRspInfo qrxlvminCfg);
 }
