@@ -16,8 +16,12 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.CyberSenseHALCollecti
 import vendor.oplus.hardware.subsys_interface.subsys_radio.DataStallParam;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.DubCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.EccEntry;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.HplmnBgSearchInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HSTType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HyperUplinkParas;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpRedunControlInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpRedunDataPathConfigInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpRedunKeyInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadioIndication;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ISubsysRadioResponse;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.IdcOffsetConfig;
@@ -360,4 +364,13 @@ interface ISubsysRadio {
     oneway void rollbackNetworkAction(int serial, int clientId, int actionId);
     oneway void getNetworkActionState(int serial, int clientId);
     oneway void getSceneMode(int serial, in int[] sceneIds);
+    oneway void hplmnBgSearch(int serial, in HplmnBgSearchInfo hplmnBgSearchInfo);
+    oneway void getImsRtpRedunCapability(int serial);
+    oneway void syncImsRtpRedunDataPathConfig(int serial, in ImsRtpRedunDataPathConfigInfo info);
+    oneway void exchangeImsRtpRedunPublicKey(int serial, in ImsRtpRedunKeyInfo info);
+    oneway void setImsRtpRedunControlInfo(int serial, in ImsRtpRedunControlInfo info);
+    oneway void dumpDiagMdLogBuffer(int serial);
+    oneway void setMdLogBufferSize(int serial, int size);
+    oneway void setTxPathFilter(int serial, byte rat, int band, int mode);
+    oneway void setAtcTableDeInit(int serial);
 }

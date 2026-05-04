@@ -10,6 +10,7 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.CellInfos;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CyberSenseHALCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsMessage;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpControlInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpRedunEventInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpState;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.MccChangeIndInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NasAccessBarringStatusInfo;
@@ -75,4 +76,5 @@ oneway interface ISubsysRadioIndication {
     void radioNetworkActionResultInd(int type, in ActionResult[] result);
     void radioSceneModeInd(int type, in SceneMode[] scenes);
     void radioSmartNetworkSelectInd(int type, in SmartNetworkSelectInfo smartNetworkSelectInfo);
+    void radioImsRtpRedunEventInd(int type, in ImsRtpRedunEventInfo event);
 }

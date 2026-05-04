@@ -15,6 +15,8 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.ElUlCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HeapInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HeapList;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.IndReportRecord;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpRedunControlRspInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpRedunKeyRspInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.McfgRemoteDiscoverInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.McfgRfsParams;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NasSysInfo;
@@ -347,4 +349,13 @@ oneway interface ISubsysRadioResponse {
     void rollbackNetworkActionResponse(in SubsysResponseInfo info);
     void getNetworkActionStateResponse(in SubsysResponseInfo info, int clientId, int actionId, int actionState);
     void getSceneModeResponse(in SubsysResponseInfo info, in SceneMode[] scenes);
+    void hplmnBgSearchResponse(in SubsysResponseInfo info);
+    void getImsRtpRedunCapabilityResponse(in SubsysResponseInfo info, int capability);
+    void syncImsRtpRedunDataPathConfigResponse(in SubsysResponseInfo info, int result);
+    void exchangeImsRtpRedunPublicKeyResponse(in SubsysResponseInfo info, in ImsRtpRedunKeyRspInfo keyRsp);
+    void setImsRtpRedunControlInfoResponse(in SubsysResponseInfo info, in ImsRtpRedunControlRspInfo controlRsp);
+    void dumpDiagMdLogBufferResponse(in SubsysResponseInfo info);
+    void setMdLogBufferSizeResponse(in SubsysResponseInfo info);
+    void setTxPathFilterResponse(in SubsysResponseInfo info);
+    void setAtcTableDeInitResponse(in SubsysResponseInfo info);
 }
