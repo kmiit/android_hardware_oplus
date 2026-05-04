@@ -16,6 +16,7 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.HeapList;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.McfgRemoteDiscoverInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.McfgRfsParams;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NasSysInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.NrcaInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NrCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NvBackupStatisticsType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NwRateLimitingInfo;
@@ -269,4 +270,8 @@ oneway interface ISubsysRadioResponse {
     void getQosDataResponse(in SubsysResponseInfo info, in byte[] data);
     void setDsdaPreferCustThreshResponse(in SubsysResponseInfo info);
     void setIdcOffsetResponse(in SubsysResponseInfo info);
+    void writeNvItemResponse(in SubsysResponseInfo info);
+    void getLteCellInfoResponse(in SubsysResponseInfo info, int pci, int arfcn, boolean sib24Available);
+    void getNrcaInfoResponse(in SubsysResponseInfo info, in NrcaInfo nrcaInfo);
+    void updateDcdcSleepStateResponse(in SubsysResponseInfo info);
 }

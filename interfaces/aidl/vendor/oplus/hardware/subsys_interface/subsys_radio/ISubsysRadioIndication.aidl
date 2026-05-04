@@ -8,6 +8,7 @@ package vendor.oplus.hardware.subsys_interface.subsys_radio;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CyberSenseHALCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsMessage;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpState;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.MccChangeIndInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.Nr5gDrxType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NwRateLimitingInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SimOverdueIndType;
@@ -42,4 +43,6 @@ oneway interface ISubsysRadioIndication {
     void radioMsimSubModeInd(int type, int msimSubMode, int dsdaTxMode);
     void radioQosPeriodReportInd(int type, in byte[] data);
     void radioQosEventReportInd(int type, in byte[] data);
+    void radioLteCellInfoInd(int type, int pci, int arfcn, boolean sib24_available);
+    void radioMccChangeInd(int type, in MccChangeIndInfo roamInfo);
 }

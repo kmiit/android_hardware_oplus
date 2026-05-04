@@ -271,4 +271,8 @@ interface ISubsysRadio {
     oneway void getQosData(int serial, int qosEvtId);
     oneway void setDsdaPreferCustThresh(int serial, int rat, int rsrpTh, int rsrqTh);
     oneway void setIdcOffset(int serial, int rat, int srvRsrpTh, in IdcOffsetConfig[] idcOffsetCfgs);
+    oneway void writeNvItem(int serial, int id, byte index, in byte[] data);
+    oneway void getLteCellInfo(int serial);
+    oneway void getNrcaInfo(int serial);
+    oneway void updateDcdcSleepState(int serial, int id);
 }

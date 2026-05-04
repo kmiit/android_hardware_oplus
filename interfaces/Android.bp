@@ -619,14 +619,17 @@ aidl_interface {
     imports: [
         "vendor.oplus.hardware.subsys-V1",
     ],
-    frozen: true,
     versions_with_info: [
         {
             version: "1",
             imports: ["vendor.oplus.hardware.subsys-V1"],
         },
-    ],
+        {
+            version: "2",
+            imports: ["vendor.oplus.hardware.subsys-V1"],
+        },
 
+    ],
 }
 
 aidl_interface {

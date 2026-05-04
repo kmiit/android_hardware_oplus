@@ -5,6 +5,8 @@
 
 package vendor.oplus.hardware.subsys_interface.subsys_radio;
 
+import vendor.oplus.hardware.subsys_interface.subsys_radio.CyberSenseHalBeamInfo;
+
 @VintfStability
 parcelable CyberSenseHALCellInfo {
     int rat = 0;
@@ -23,4 +25,5 @@ parcelable CyberSenseHALCellInfo {
     int isCA = 0;
     int isNSA = 0;
     int dopplerOffset = 0;
+    @nullable CyberSenseHalBeamInfo[] beams;
 }
