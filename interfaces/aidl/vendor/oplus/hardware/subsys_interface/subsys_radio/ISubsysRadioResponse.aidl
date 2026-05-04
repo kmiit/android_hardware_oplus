@@ -319,4 +319,16 @@ oneway interface ISubsysRadioResponse {
     void enableATCIPortResponse(in SubsysResponseInfo info);
     void setVonrRollbackCfgResponse(in SubsysResponseInfo info);
     void satelliteFirmwareDownLoadResponse(in SubsysResponseInfo info);
+    void setEsimStatusResponse(in SubsysResponseInfo info);
+    void setCarrierLockBlobResponse(in SubsysResponseInfo info);
+    void setCarrierLockStatusResponse(in SubsysResponseInfo info);
+    void getCarrierLockStatusResponse(in SubsysResponseInfo info, in byte[] data);
+    void setRegionLockBlobResponse(in SubsysResponseInfo info, in byte[] data);
+    void setRegionLockStatusResponse(in SubsysResponseInfo info, in byte[] data);
+    void getRegionLockStatusResponse(in SubsysResponseInfo info, in byte[] data);
+    void writeEncryptedSerialIdResponse(in SubsysResponseInfo info);
+    void readRegionLockDataResponse(in SubsysResponseInfo info, in byte[] data);
+    void writeCarrierLockWhitelistResponse(in SubsysResponseInfo info);
+    void readCarrierLockWhitelistResponse(in SubsysResponseInfo info, in byte[] data);
+    void setAtomStatusResponse(in SubsysResponseInfo info);
 }

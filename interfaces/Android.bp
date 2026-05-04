@@ -617,7 +617,7 @@ aidl_interface {
         },
     },
     imports: [
-        "vendor.oplus.hardware.subsys-V3",
+        "vendor.oplus.hardware.subsys-V4",
     ],
     versions_with_info: [
         {
@@ -635,6 +635,10 @@ aidl_interface {
         {
             version: "4",
             imports: ["vendor.oplus.hardware.subsys-V3"],
+        },
+        {
+            version: "5",
+            imports: ["vendor.oplus.hardware.subsys-V4"],
         },
 
     ],

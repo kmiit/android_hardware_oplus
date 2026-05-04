@@ -61,4 +61,8 @@ oneway interface ISubsysRadioIndication {
     void radioNrcaInfoChangeInd(int type, in NrcaInfo nrcaInfo);
     void radioVonrBackoffInfoChangeInd(int type, in VonrBackoffInfo backoffInfo);
     void radioVonrRollbackInfoChangeInd(int type, in VonrRollbackInfo rollbackInfo);
+    void radioSingleSimChangeInd(int type, byte status);
+    void radioCarrierLockStatusChangeInd(int type, in byte[] data);
+    void radioRegionLockStatusChangeInd(int type, in byte[] data);
+    void radioAlertEventInd(int type, int alertId, int alertCause, in int[] alertParam);
 }

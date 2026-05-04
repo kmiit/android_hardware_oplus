@@ -6,6 +6,7 @@
 package vendor.oplus.hardware.subsys_interface.subsys_radio;
 
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ArrearageCfgInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.AtomConfigs;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CfgPaInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CyberSenseHALCollectionPolicy;
@@ -326,4 +327,16 @@ interface ISubsysRadio {
     oneway void enableATCIPort(int serial, boolean enable);
     oneway void setVonrRollbackCfg(int serial, in VonrRollbackCfg info);
     oneway void satelliteFirmwareDownLoad(int serial);
+    oneway void setEsimStatus(int serial, int status);
+    oneway void setCarrierLockBlob(int serial, in byte[] data);
+    oneway void setCarrierLockStatus(int serial, in byte[] data);
+    oneway void getCarrierLockStatus(int serial, in byte[] data);
+    oneway void setRegionLockBlob(int serial, in byte[] data);
+    oneway void setRegionLockStatus(int serial, in byte[] data);
+    oneway void getRegionLockStatus(int serial, in byte[] data);
+    oneway void writeEncryptedSerialId(int serial, in byte[] data);
+    oneway void readRegionLockData(int serial);
+    oneway void writeCarrierLockWhitelist(int serial, in byte[] data);
+    oneway void readCarrierLockWhitelist(int serial);
+    oneway void setAtomStatus(int serial, int id, int status, int subPolicy, in AtomConfigs configs);
 }
