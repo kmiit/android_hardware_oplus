@@ -652,8 +652,13 @@ aidl_interface {
             version: "8",
             imports: ["vendor.oplus.hardware.subsys-V5"],
         },
+        {
+            version: "9",
+            imports: ["vendor.oplus.hardware.subsys-V5"],
+        },
 
     ],
+    frozen: true,
 }
 
 aidl_interface {

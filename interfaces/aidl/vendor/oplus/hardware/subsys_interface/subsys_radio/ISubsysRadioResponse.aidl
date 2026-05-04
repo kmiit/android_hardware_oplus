@@ -7,11 +7,13 @@ package vendor.oplus.hardware.subsys_interface.subsys_radio;
 
 import vendor.oplus.hardware.subsys_interface.subsys.SubsysResponseInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.AsdivState;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.CallCellScore;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CellInfos;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.DiagPacketVersionMismatchDb;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ElDlCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ElUlCellInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.FenceStateInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HeapInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HeapList;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.IndReportRecord;
@@ -19,6 +21,8 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpRedunControlRsp
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpRedunKeyRspInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.McfgRemoteDiscoverInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.McfgRfsParams;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ModemFittingInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ModemWifiQosInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NasSysInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NeighborCellInfos;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NrcaInfo;
@@ -31,6 +35,8 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.PowerStatisticsConfig
 import vendor.oplus.hardware.subsys_interface.subsys_radio.QrxlvminRspInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RrcState;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RsuSimlockLockStatus;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.RxBoostStateInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.SatelliteCalDataStatusType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SceneMode;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SystemSelectionPreference;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.TxRxInfo;
@@ -358,4 +364,20 @@ oneway interface ISubsysRadioResponse {
     void setMdLogBufferSizeResponse(in SubsysResponseInfo info);
     void setTxPathFilterResponse(in SubsysResponseInfo info);
     void setAtcTableDeInitResponse(in SubsysResponseInfo info);
+    void getModemFittingInfoResponse(in SubsysResponseInfo info, in ModemFittingInfo mdInfo);
+    void getSatelliteImeiResponse(in SubsysResponseInfo info, String imei3);
+    void setRxBoostStateResponse(in SubsysResponseInfo info);
+    void getRxBoostStateResponse(in SubsysResponseInfo info, in RxBoostStateInfo stateInfo);
+    void getSatelliteCalibrationDataStateResponse(in SubsysResponseInfo info, in SatelliteCalDataStatusType state);
+    void setWifiQosInfoResponse(in SubsysResponseInfo info);
+    void getWifiQosInfoResponse(in SubsysResponseInfo info, in ModemWifiQosInfo[] wifiQosRspInfo);
+    void registerFenceClientResponse(in SubsysResponseInfo info, int clientId);
+    void setFenceRecognizeStateResponse(in SubsysResponseInfo info);
+    void getFenceStateResponse(in SubsysResponseInfo info, in FenceStateInfo[] fenceStateInfo, boolean state);
+    void triggerFenceLearningResponse(in SubsysResponseInfo info, int fenceId);
+    void sendWifiConnectInfoResponse(in SubsysResponseInfo info);
+    void sendFenceInfoResponse(in SubsysResponseInfo info);
+    void deregisterFenceClientResponse(in SubsysResponseInfo info);
+    void setCallScoreInfoResponse(in SubsysResponseInfo info);
+    void getCallScoreInfoResponse(in SubsysResponseInfo info, in CallCellScore score);
 }

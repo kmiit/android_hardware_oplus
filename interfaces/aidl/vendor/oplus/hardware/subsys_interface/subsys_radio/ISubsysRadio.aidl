@@ -10,12 +10,15 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.AdaptiveHandoverThres
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ArrearageCfgInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.AtomParamConfig;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.AtomConfigs;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.CallCellInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.CallScoreInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CfgPaInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CyberSenseHALCollectionPolicy;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.DataStallParam;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.DubCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.EccEntry;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.FenceInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HplmnBgSearchInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HSTType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.HyperUplinkParas;
@@ -35,6 +38,7 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.NfList;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.OosCfgInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PagingErrorCfg;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ParamConfig;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ParamPair;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PlmnBlockInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PlmnRatInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PolicyConfig;
@@ -42,12 +46,15 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.PowerSavingInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.QrxlvminCfgInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RfTxInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RfTxInfo2;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.RxBoostCtrlParas;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ScoreInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SmartIdleConfigs;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.TxAdcInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.UimAuthenticateReqInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.IUimAuthenticateCallback;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.VonrRollbackCfg;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.WifiConnectInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.WifiQosInfo;
 
 @VintfStability
 interface ISubsysRadio {
@@ -373,4 +380,20 @@ interface ISubsysRadio {
     oneway void setMdLogBufferSize(int serial, int size);
     oneway void setTxPathFilter(int serial, byte rat, int band, int mode);
     oneway void setAtcTableDeInit(int serial);
+    oneway void getModemFittingInfo(int serial);
+    oneway void getSatelliteImei(int serial);
+    oneway void setRxBoostState(int serial, in RxBoostCtrlParas rxBoostCtrlParas);
+    oneway void getRxBoostState(int serial);
+    oneway void getSatelliteCalibrationDataState(int serial);
+    oneway void setWifiQosInfo(int serial, in WifiQosInfo qosInfo);
+    oneway void getWifiQosInfo(int serial);
+    oneway void registerFenceClient(int serial, int fenceType, int businessId, in ParamPair[] configs);
+    oneway void setFenceRecognizeState(int serial, int fenceType, int clientId, int state, in ParamPair[] configs);
+    oneway void getFenceState(int serial, int fenceType, int clientId, in ParamPair[] configs);
+    oneway void triggerFenceLearning(int serial, int fenceType, int clientId, in ParamPair[] configs);
+    oneway void sendWifiConnectInfo(int serial, in WifiConnectInfo info);
+    oneway void sendFenceInfo(int serial, in FenceInfo[] info);
+    oneway void deregisterFenceClient(int serial, int fenceType, int clientId);
+    oneway void setCallScoreInfo(int serial, in CallScoreInfo info);
+    oneway void getCallScoreInfo(int serial, int apScore, in CallCellInfo info);
 }
