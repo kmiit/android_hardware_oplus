@@ -5,6 +5,7 @@
 
 package vendor.oplus.hardware.subsys_interface.subsys_radio;
 
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ActionResult;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CellInfos;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CyberSenseHALCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsMessage;
@@ -16,9 +17,11 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.NeighborCellInfos;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.Nr5gDrxType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NrcaInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NwRateLimitingInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.SceneMode;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SimOverdueIndType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SimlockInfoType;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SimlockStateType;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.SmartNetworkSelectInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.VodataEventInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.VonrBackoffInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.VonrRollbackInfo;
@@ -69,4 +72,7 @@ oneway interface ISubsysRadioIndication {
     void radioAlertEventInd(int type, int alertId, int alertCause, in int[] alertParam);
     void radioVodataEventInd(int type, in VodataEventInfo vodataEventInfo);
     void radioAllCellInfoInd(int type, in CellInfos[] servingCellInfo, in NeighborCellInfos[] neighborCellInfos);
+    void radioNetworkActionResultInd(int type, in ActionResult[] result);
+    void radioSceneModeInd(int type, in SceneMode[] scenes);
+    void radioSmartNetworkSelectInd(int type, in SmartNetworkSelectInfo smartNetworkSelectInfo);
 }

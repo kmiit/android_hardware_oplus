@@ -25,9 +25,11 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.NvBackupStatisticsTyp
 import vendor.oplus.hardware.subsys_interface.subsys_radio.NwRateLimitingInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PhySlotStatus;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PolicyConfig;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.PowerStatisticsConfigs;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.QrxlvminRspInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RrcState;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RsuSimlockLockStatus;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.SceneMode;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.SystemSelectionPreference;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.TxRxInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.VoiceConfig;
@@ -338,4 +340,11 @@ oneway interface ISubsysRadioResponse {
     void setIndicationConfigResponse(in SubsysResponseInfo info);
     void setEccListResponse(in SubsysResponseInfo info);
     void getQrxlvminCfgResponse(in SubsysResponseInfo info, in QrxlvminRspInfo qrxlvminCfg);
+    void setSmartIdleCfgResponse(in SubsysResponseInfo info);
+    void getPowerStatisticsResponse(in SubsysResponseInfo info, in PowerStatisticsConfigs powerStatistics);
+    void sendScoreInfoResponse(in SubsysResponseInfo info);
+    void sendNetworkActionResponse(in SubsysResponseInfo info);
+    void rollbackNetworkActionResponse(in SubsysResponseInfo info);
+    void getNetworkActionStateResponse(in SubsysResponseInfo info, int clientId, int actionId, int actionState);
+    void getSceneModeResponse(in SubsysResponseInfo info, in SceneMode[] scenes);
 }

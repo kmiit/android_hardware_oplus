@@ -5,6 +5,7 @@
 
 package vendor.oplus.hardware.subsys_interface.subsys_radio;
 
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ActionConfig;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.AdaptiveHandoverThreshold;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ArrearageCfgInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.AtomParamConfig;
@@ -37,6 +38,8 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.PowerSavingInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.QrxlvminCfgInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RfTxInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RfTxInfo2;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.ScoreInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.SmartIdleConfigs;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.TxAdcInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.UimAuthenticateReqInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.IUimAuthenticateCallback;
@@ -350,4 +353,11 @@ interface ISubsysRadio {
     oneway void setIndicationConfig(int serial, int id, in AtomParamConfig[] configs);
     oneway void setEccList(int serial, in EccEntry[] eccs);
     oneway void getQrxlvminCfg(int serial, int rat);
+    oneway void setSmartIdleCfg(int serial, in SmartIdleConfigs configs);
+    oneway void getPowerStatistics(int serial);
+    oneway void sendScoreInfo(int serial, in ScoreInfo[] scoreInfos);
+    oneway void sendNetworkAction(int serial, in ActionConfig config);
+    oneway void rollbackNetworkAction(int serial, int clientId, int actionId);
+    oneway void getNetworkActionState(int serial, int clientId);
+    oneway void getSceneMode(int serial, in int[] sceneIds);
 }
