@@ -8,6 +8,7 @@ package vendor.oplus.hardware.subsys_interface.subsys_radio;
 import vendor.oplus.hardware.subsys_interface.subsys.SubsysResponseInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.AsdivState;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CellInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.CellInfos;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.DiagPacketVersionMismatchDb;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ElDlCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ElUlCellInfo;
@@ -274,4 +275,15 @@ oneway interface ISubsysRadioResponse {
     void getLteCellInfoResponse(in SubsysResponseInfo info, int pci, int arfcn, boolean sib24Available);
     void getNrcaInfoResponse(in SubsysResponseInfo info, in NrcaInfo nrcaInfo);
     void updateDcdcSleepStateResponse(in SubsysResponseInfo info);
+    void enableCellBarringResponse(in SubsysResponseInfo info);
+    void configCellBarringParamResponse(in SubsysResponseInfo info);
+    void setFeatureStateResponse(in SubsysResponseInfo info);
+    void getFeatureStateResponse(in SubsysResponseInfo info, int featureState);
+    void setRfTxInfo2Response(in SubsysResponseInfo info);
+    void setAtcTableInitResponse(in SubsysResponseInfo info);
+    void getTxCarkitResponse(in SubsysResponseInfo info, in byte[] antennas);
+    void getServingCellularCellInfoResponse(in SubsysResponseInfo info, in CellInfos respInfo);
+    void startMetricsCollectResponse(in SubsysResponseInfo info);
+    void stopMetricsCollectResponse(in SubsysResponseInfo info);
+    void getMetricsDataResponse(in SubsysResponseInfo info, in byte[] data);
 }

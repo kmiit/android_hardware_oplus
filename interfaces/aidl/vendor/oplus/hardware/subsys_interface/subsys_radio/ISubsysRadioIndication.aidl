@@ -5,6 +5,7 @@
 
 package vendor.oplus.hardware.subsys_interface.subsys_radio;
 
+import vendor.oplus.hardware.subsys_interface.subsys_radio.CellInfos;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.CyberSenseHALCellInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsMessage;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.ImsRtpState;
@@ -45,4 +46,6 @@ oneway interface ISubsysRadioIndication {
     void radioQosEventReportInd(int type, in byte[] data);
     void radioLteCellInfoInd(int type, int pci, int arfcn, boolean sib24_available);
     void radioMccChangeInd(int type, in MccChangeIndInfo roamInfo);
+    void radioHstModeInd(int type, int hstMode);
+    void radioServingCellInfoInd(int type, in CellInfos info);
 }

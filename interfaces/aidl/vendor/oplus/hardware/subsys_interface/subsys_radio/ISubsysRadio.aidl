@@ -25,6 +25,7 @@ import vendor.oplus.hardware.subsys_interface.subsys_radio.PlmnRatInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.PowerSavingInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.QrxlvminCfgInfo;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.RfTxInfo;
+import vendor.oplus.hardware.subsys_interface.subsys_radio.RfTxInfo2;
 import vendor.oplus.hardware.subsys_interface.subsys_radio.TxAdcInfo;
 
 @VintfStability
@@ -275,4 +276,15 @@ interface ISubsysRadio {
     oneway void getLteCellInfo(int serial);
     oneway void getNrcaInfo(int serial);
     oneway void updateDcdcSleepState(int serial, int id);
+    oneway void enableCellBarring(int serial, byte currentMode);
+    oneway void configCellBarringParam(int serial, int threshold, int watchPeriod, int barringTime);
+    oneway void setFeatureState(int serial, int featureId, int featureState);
+    oneway void getFeatureState(int serial, int featureId);
+    oneway void setRfTxInfo2(int serial, in RfTxInfo2 sTxInfo);
+    oneway void setAtcTableInit(int serial);
+    oneway void getTxCarkit(int serial, int rfPathTech, int uiBand, int subband, int paIndex);
+    oneway void getServingCellularCellInfo(int serial);
+    oneway void startMetricsCollect(int serial, int id, in int[] mask);
+    oneway void stopMetricsCollect(int serial, int id);
+    oneway void getMetricsData(int serial, int id, int subPolicy, in int[] mask);
 }
