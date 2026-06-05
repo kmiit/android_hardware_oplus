@@ -26,6 +26,7 @@ awb.purecolor.enable               u:object_r:exported_system_prop:s0
 persist.oplus.display.vrr.adfr     u:object_r:exported_system_prop:s0
 persist.sys.display.iris.absent    u:object_r:system_oplus_iris_prop:s0
 ro.oplus.display.                  u:object_r:exported_system_prop:s0
+ro.oplus.vpp.wechatsr.enable       u:object_r:exported_system_prop:s0
 
 # Engineering
 ro.oplus.image.my_engineering.type    u:object_r:exported_system_prop:s0
@@ -58,6 +59,10 @@ persist.sys.enable_modem_dump    u:object_r:exported_system_prop:s0
 
 # Performance
 sys.oplus.high.performance    u:object_r:exported_system_prop:s0
+
+# Platform
+ro.mediatek.platform        u:object_r:exported_system_prop:s0
+ro.chipname                 u:object_r:exported_system_prop:s0
 
 # Radio
 persist.radio.oplus.qcrild_start    u:object_r:exported_system_prop:s0
